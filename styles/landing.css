@@ -45,6 +45,8 @@ body.landing {
     -webkit-transition-delay: 0.2s;
     -moz-transition-delay: 0.2s;
     transition-delay: 0.2s;
+    transition-duration: 4s;
+    transition-timing-function: step-end;
 }
 
 .point .point-title {

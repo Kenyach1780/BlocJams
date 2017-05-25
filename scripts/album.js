@@ -35,7 +35,7 @@ var albumTimberlake = {
     artist: 'Justin Timberlake',
     label: 'RCA',
     year: '2013',
-    albumArtUrl: 'https://en.wikipedia.org/wiki/File:Justin_Timberlake_-_The_2020_Experience.png',
+    albumArtUrl: 'assets/images/album_covers/JT2020.png',
     songs: [
         { title: 'Pusher Love Girl', duration: '8:02' },
         { title: 'Suit & Tie', duration: '5:26' },
@@ -62,24 +62,25 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
 };
 
+//#1 Select elements that we want to populate with text dynamically
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
 var setCurrentAlbum = function(album) {
-    //#1
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
     
-    //#2
+    //#2 Assign values to each part of the album (text, images)
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + '' + album.label;
     albumImage.setAttribute('src', album.albumArtUrl);
     
-    //#3
+    //#3 Clear contents of album song list container
     albumSongList.innerHTML = '';
     
-    //#4
+    //#4 Build list of songs from album JavaScript object
     for (var i = 0; i < album.songs.length; i++) {
         albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
     }
@@ -87,13 +88,17 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+    
+    var albums = [albumPicasso, albumMarconi, albumTimberlake];
+    var index = 1;
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
+        index++;
+        if (index == albums.length) {
+            index = 0;
+        }
+    });
 };
 
-document.getElementsByClassName('album-cover-art').addEventListener("click", myFunction);
 
-function myFunction() {
-    // Toggle between the three album objects
-    //albumPicasso
-    //albumMarconi
-    //albumTimberlake
-} 
+ 

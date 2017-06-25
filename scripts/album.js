@@ -65,27 +65,46 @@ var setCurrentAlbum = function(album) {
     }
 };
 
-function findParentByClassName(element, targetClass) {
-    if (element) {
-        var parent = element.parentElement;
-        while (parent.className !== targetClass && parent.className !== null) {
-            parent = parent.parentElement;
-        }
-        return parent;
-    }
-};
+//function findParentByClassName(element, targetClass) {
+//    if (element) {
+//        var parent = element.parentElement;
+//        while (parent.className !== targetClass && parent.className !== null) {
+//            parent = parent.parentElement;
+//        }
+//        return parent;
+//    }
+//};
 
 //function findParentByClassName(element, targetClass) {
+//  if (element) {
 //    var parent = element.parentElement;
-//  
-//    if (element.parentElement === true) {
-//      return parent;
-//    } else if (element.parentElement === false) {
-//      console.log("No parent found.");
-//    } else {
-//      console.log("No parent found with that class name.");
+//    
+//    while(parent.className !== targetClass && parent.className !== null) {
+//      if (element.parentElement === targetClass) {
+//        return parent;
+//      } else if (element.parentElement !== targetClass) {
+//        console.log("No parent found.");
+//      } else {
+//        console.log("No parent found with that class name.");
+//      }
 //    }
-//} 
+//  }
+//}
+
+function findParentByClassName(element, targetClass) {
+  if(element) {
+    var parent = element.parentElement;
+    
+    while (parent.className !== targetClass && parent.className !== null) {
+      parent = parent.parentElement;
+    }
+    return parent;
+  } else if (targetClass !== element.parentElement) {
+    console.log("No parent found.");
+  } else {
+    console.log("No parent found with that class name.");
+  }
+}
 
 function getSongItem(element) {
     switch (element.className) {

@@ -190,7 +190,7 @@ var previousSong = function() {
 
 var togglePlayFromPlayerBar = function() {
     // if song is paused & play button clicked in player bar
-    if (currentSoundFile.isPaused()) {
+    if (currentSoundFile) {
         // play the song
         currentSoundFile.play();
         // change song number cell from play to pause button

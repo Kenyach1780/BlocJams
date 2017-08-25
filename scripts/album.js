@@ -133,7 +133,7 @@ var setupSeekBars = function() {
         
         // check class of seek bar's parent to determine seek position
         // or volume control
-        if ($(this).parent().attr('class') === '.seek-control') {
+        if ($(this).parent().attr('class') === 'seek-control') {
             // seek to song position using seekBarFillRatio
             seek(seekBarFillRatio * currentSoundFile.getDuration());
         } else {
@@ -157,7 +157,7 @@ var setupSeekBars = function() {
             
             // check class of seek bar's parent to determine seek position
             // or volume control
-        if ($(this).parent().attr('class') === '.seek-control') {
+        if ($(this).parent().attr('class') === 'seek-control') {
             // seek to song position using seekBarFillRatio
             seek(seekBarFillRatio * currentSoundFile.getDuration());
         } else {
@@ -198,11 +198,11 @@ var setSong = function(songNumber) {
     }
 };
 
-var seek = function() {
+var seek = function(time) {
   if (currentSoundFile) {
       currentSoundFile.setTime(time);
   }  
-}
+};
     
 var setVolume = function(volume) {
     if (currentSoundFile) {

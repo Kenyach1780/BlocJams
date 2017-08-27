@@ -26,6 +26,7 @@ var createSongRow = function(songNumber, songName, songLength) {
             $(this).html(pauseButtonTemplate);
             currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
             updatePlayerBarSong();
+            updateSeekBarWhileSongPlays();
             // REFACTOR: if user clicks new song, play current sound file after calling setSong()
         } else if (currentlyPlayingSongNumber === songNumber) {
             // REFACTOR: remove currentlyPlayingSongNumber = null

@@ -5,7 +5,6 @@ thumbnail-path: "assets/images/bloc_jams_logo.png"
 short-description: Bloc Jams is a music player similar to Spotify that allows you to play your favorite music wherever you go.
 ---
 
-{:.center}
 ![Bloc Jams Logo](https://github.com/Kenyach1780/bloc-jams/blob/master/assets/images/bloc_jams_logo.png)
 
 # Bloc Jams Case Study
